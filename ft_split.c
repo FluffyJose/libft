@@ -1,100 +1,101 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreddy <sfreddy@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 00:38:14 by sfreddy           #+#    #+#             */
+/*   Updated: 2021/10/08 22:29:08 by sfreddy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t char_count(char *word, char c)
+#include "libft.h"
+
+int	ft_wordlen(char *str, char c)
 {
-    size_t len;
+	int	i;
 
-    len = 0;
-    while (*word != c && *word)
-    {
-        word++;
-        len++;
-    }
-    return (len);
+	i = 0;
+	while (str[i] != c && str[i])
+		++i;
+	return (i);
 }
 
-size_t word_counter(char *str, char c)
+int	count_words(char *str, char c)
 {
-    size_t  count_words;
+	int	num_words;
 
-    count_words = 0;
-    while (*str == c)
-        str++;
-    while (*str)
-    { 
-        count_words++;
-        while (*str != c && *str)
-            str++;
-        while (*str == c && *str)
-            str++;
-    }
-    return (count_words);
+	num_words = 0;
+	while (*str == c && *str)
+		++str;
+	while (*str)
+	{
+		++num_words;
+		while (*str != c && *str)
+			++str;
+		while (*str == c && *str)
+			++str;
+	}
+	return (num_words);
 }
 
-char    *word_dup(char *str, char c)
+char	*word_dupe(char *str, char c)
 {
-    size_t  i;
-    size_t  len;
-    char    *result;
+	int		i;
+	int		len;
+	char	*word;
 
-    i = 0;
-    len = char_count(str, c);
-    result = (char*)malloc(sizeof(char)*len + 1);
-    result[len] = '\0';
-
-    while (i < len)
-    {
-        result[i] = str[i];
-        i++;
-    }
-    return (result);
+	i = 0;
+	len = ft_wordlen(str, c);
+	word = (char *) malloc(sizeof(char) * (len + 1));
+	if (!word)
+		return (NULL);
+	word[len] = '\0';
+	while (i < len)
+	{
+		word[i] = str[i];
+		++i;
+	}
+	return (word);
 }
 
-void    array_filler(char **arr, char *substr, char c)
+void	fill_words(char **array, char *str, char c)
 {
-    size_t  i;
+	int	word_index;
 
-    i = 0;
-    while (*substr == c && *substr)
-        substr++;
-    while (*substr)
-    {
-        arr[i] = word_dup(substr, c);
-        i++;
-        while (*substr != c && *substr)
-            substr++;
-        while (*substr == c && *substr)
-            substr++;
-    }
+	word_index = 0;
+	while (*str == c && *str)
+		++str;
+	while (*str != '\0')
+	{
+		array[word_index] = word_dupe(str, c);
+		if (!array[word_index] && array[0])
+		{
+			while (word_index != -1)
+			{
+				free(array[word_index]);
+				array[word_index] = NULL;
+				--word_index;
+			}
+			return ;
+		}
+		++word_index;
+		while (*str != c && *str)
+			++str;
+		while (*str == c && *str)
+			++str;
+	}
 }
 
-char    **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-    size_t  wc;
-    char    **arr;
-    char    *temp;
+	int		num_words;
+	char	**array;
 
-    temp = (char *)s;
-    wc = word_counter(temp, c);
-    arr = (char **)malloc(sizeof(char*) * wc + 1);
-    arr[wc] = NULL;
-    array_filler(arr, temp, c);
-    return (arr);
+	num_words = count_words((char *)s, c);
+	array = (char **)malloc(sizeof(char *) * (num_words + 1));
+	array[num_words] = NULL;
+	fill_words(array, (char *)s, c);
+	return (array);
 }
-
-// int main(void)
-// {
-//     char arr[] = "Hello Privet       Test    Soloma Sex";
-//     size_t i = 0;
-//     char **result = ft_split(arr, 'j');
-//     while (result[i] != NULL)
-//         printf("%s\n", result[i++]);
-
-//     // printf("%lu\n", char_count("qwerty ",  ' '));
-//     // char *c = "qwerty ";
-//     // char s = ' ';
-//     // printf("%s\n", word_dup(c, s));
-//     // printf("%lu\n", word_counter("qwerty", 'r'));
-//     return (0);
-// }

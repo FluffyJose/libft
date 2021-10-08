@@ -1,27 +1,29 @@
-#include <stdlib.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreddy <sfreddy@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 23:13:01 by sfreddy           #+#    #+#             */
+/*   Updated: 2021/10/08 23:13:59 by sfreddy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t ft_strlcpy (char *dst, const char *src, size_t size)
-{
-    size_t  i;
+#include "libft.h"
 
-    i = 0;
-    if (!dst || !src)
-        return (0);
-    while (src[i] && dst[i] && i < size)
-    {   
-        dst[i] = src[i];
-        i++;
-    }
-    dst[i] = '\0';
-    return (i);
-}
-/*
-int main (void)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-    char dst[] = "qwerty";
-    const char *src = "qwertyu";
-    printf("%ld\n", ft_strlcpy(dst, src, 7));
-    printf("%s\n", dst);
+	size_t	i;
+
+	i = 0;
+	if (!dst || !src)
+		return (0);
+	while (src[i] && dst[i] && i < size)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (i);
 }
-*/

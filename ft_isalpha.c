@@ -1,23 +1,18 @@
-#include <stdio.h>
-#include <ctype.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreddy <sfreddy@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 20:18:50 by sfreddy           #+#    #+#             */
+/*   Updated: 2021/10/08 20:52:38 by sfreddy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_isalpha(int c)
+#include "libft.h"
+
+int	ft_isalpha(int c)
 {
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-        return (c);
-    return (0);
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
-/*
-int main(void)
-{
-    printf("%d\n", ft_isalpha('a'));
-    printf("%d\n", isalpha('a'));
-    printf("%d\n", ft_isalpha('z'));
-    printf("%d\n", isalpha('z'));
-    printf("%d\n", ft_isalpha('A'));
-    printf("%d\n", isalpha('A'));
-    printf("%d\n", ft_isalpha('Z'));
-    printf("%d\n", isalpha('Z'));
-    return (0);
-}
-*/

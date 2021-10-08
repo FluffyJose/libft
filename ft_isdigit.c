@@ -1,24 +1,18 @@
-#include <stdio.h>
-#include <ctype.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreddy <sfreddy@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 20:29:47 by sfreddy           #+#    #+#             */
+/*   Updated: 2021/10/08 20:54:48 by sfreddy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_isdigit(int c)
-{
-    if (c >= '0' && c <= '9')
-        return (c);
-    return (0);
-}
+#include "libft.h"
 
-/*
-int main(void)
+int	ft_isdigit(int c)
 {
-    printf("%d\n", ft_isdigit('0'));
-    printf("%d\n", isdigit('0'));
-    printf("%d\n", ft_isdigit('9'));
-    printf("%d\n", isdigit('9'));
-    printf("%d\n", ft_isdigit('A'));
-    printf("%d\n", isdigit('A'));
-    printf("%d\n", ft_isdigit('z'));
-    printf("%d\n", isdigit('z'));
-    return (0);
+	return (c >= '0' && c <= '9');
 }
-*/

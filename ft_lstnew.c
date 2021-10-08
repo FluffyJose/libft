@@ -1,19 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreddy <sfreddy@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 23:31:32 by sfreddy           #+#    #+#             */
+/*   Updated: 2021/10/08 23:33:35 by sfreddy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-
-
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
-    t_list *p;
+	t_list	*p;
 
-    p = (t_list*)malloc(sizeof(t_list));
-    if (!p)
-        return NULL;
-    p->content = content;
-    p->next = NULL;
-    return p;
+	p = (t_list *)malloc(sizeof(t_list));
+	if (!p)
+		return (NULL);
+	p->content = content;
+	p->next = NULL;
+	return (p);
 }
 
 // int main(void)

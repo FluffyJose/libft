@@ -1,25 +1,18 @@
-#include <stdio.h>
-#include <ctype.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreddy <sfreddy@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 20:16:09 by sfreddy           #+#    #+#             */
+/*   Updated: 2021/10/08 20:51:57 by sfreddy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-    if (ft_isalpha(c) || ft_isdigit(c))
-        return (c);
-    return (0);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
-
-/*
-int main(void)
-{
-    printf("%d\n", ft_isalnum('#'));
-    printf("%d\n", isalnum('#'));
-    printf("%d\n", ft_isalnum('9'));
-    printf("%d\n", isalnum('9'));
-    printf("%d\n", ft_isalnum('A'));
-    printf("%d\n", isalnum('A'));
-    printf("%d\n", ft_isalnum('z'));
-    printf("%d\n", isalnum('z'));
-    return (0);
-}
-*/

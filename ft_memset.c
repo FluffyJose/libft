@@ -1,28 +1,25 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreddy <sfreddy@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 21:07:57 by sfreddy           #+#    #+#             */
+/*   Updated: 2021/10/08 21:13:21 by sfreddy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void *ft_memset(void *s, int c, size_t n)
+#include "libft.h"
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-    size_t i;
+	size_t			i;
+	unsigned char	*p;
 
-    i = 0;
-    unsigned char *p = (unsigned char *) s;
-    while (i < n)
-        p[i++] = c;
-    return (s);
+	i = 0;
+	p = (unsigned char *) s;
+	while (i < n)
+		p[i++] = c;
+	return (s);
 }
-
-// int main(void)
-// {
-//     int i = 768;
-//     int j = 768;
-//     int *p = &i;
-//     int *p1 = &j;
-
-//     // printf("%d\n", i);
-//     ft_memset(p, 2, 2);
-//     printf("My func: %d\n", i);
-//     memset(p1, 2, 2);
-//     printf("Original memset: %d\n", j);
-// }

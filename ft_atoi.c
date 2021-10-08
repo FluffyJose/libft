@@ -1,5 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreddy <sfreddy@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/07 23:12:02 by sfreddy           #+#    #+#             */
+/*   Updated: 2021/10/08 20:09:45 by sfreddy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 int	is_space(char c)
 {
@@ -36,12 +47,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (result * sign);
 }
-/*
-int	main(void)
-{
-	char	*test = "  2147483647000000000";
-
-	printf("%d\n", ft_atoi(test));
-	printf("%d\n", atoi(test));
-}
-*/

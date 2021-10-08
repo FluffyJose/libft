@@ -1,28 +1,24 @@
-#include <stdio.h>
-#include <strings.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sfreddy <sfreddy@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 20:10:59 by sfreddy           #+#    #+#             */
+/*   Updated: 2021/10/08 20:14:26 by sfreddy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_bzero(void *s, size_t n)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
-    size_t i;
+	size_t			i;
+	unsigned char	*p;
 
-    i = 0;
-    unsigned char *p = (unsigned char *) s;
-    while (i < n)
-        p[i++] = 0;
+	i = 0;
+	p = (unsigned char *) s;
+	while (i < n)
+		p[i++] = 0;
 }
-/*
-int main(void)
-{
-    // char *s = "qwer";
-    int i = 42;
-    int j = 42;
-    int *p = &i;
-    int *p1 = &j;
-
-    // printf("%d\n", i);
-    ft_bzero(p, 4);
-    bzero(p1, 4);
-    printf("My func: %d\n", i);
-    printf("Original bzero: %d\n", j);
-}
-*/
