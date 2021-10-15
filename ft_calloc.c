@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfreddy <sfreddy@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 22:54:48 by sfreddy           #+#    #+#             */
-/*   Updated: 2021/10/13 23:45:52 by sfreddy          ###   ########.fr       */
+/*   Created: 2021/10/13 21:09:05 by sfreddy           #+#    #+#             */
+/*   Updated: 2021/10/14 00:49:15 by sfreddy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
-	size_t	j;
-	size_t	srclen;
-	size_t	dstlen;
+	void	*p;
 
-	i = 0;
-	srclen = ft_strlen(src);
-	dstlen = ft_strlen(dst);
-	j = dstlen;
-	if (dstlen < size - 1 && size > 0)
-	{
-		while (src[i] && dstlen + i < size - 1)
-			dst[j++] = src[i++];
-		dst[j] = '\0';
-	}
-	if (dstlen > size)
-		dstlen = size;
-	return (dstlen + srclen);
+	p = (void *)malloc(count * size);
+	if (!p)
+		return (NULL);
+	ft_memset(p, 0, count * size);
+	return (p);
 }
